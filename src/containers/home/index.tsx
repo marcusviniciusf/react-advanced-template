@@ -1,24 +1,23 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+// Store
+import { useStore } from 'store';
+import { useActions } from 'store/actions';
 // UI Components
 import { Box, Flex, Heading, Text, SmallText } from 'components';
-
-const Container = styled.div`
-  margin: 0 auto;
-  padding: 0 2rem;
-`;
-
-const ColorBox = styled.div`
-  height: 4rem;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  ${({ theme }) => css`
-    ${theme.media.sm} {
-      background-color: black;
-    }
-  `}
-`;
+// Styles
+import { ColorBox, Container, Spinner, CustomButton } from './styles';
 
 const HomePage: React.FC = () => {
+  const { state, dispatch } = useStore();
+  const { handleLoadingOn, handleLoadingOff } = useActions({ dispatch });
+  const { loading } = state;
+  function handleLoading(): void {
+    if (loading) {
+      handleLoadingOff();
+    } else {
+      handleLoadingOn();
+    }
+  }
   return (
     <Container>
       <Heading>Heading 1</Heading>
@@ -41,6 +40,10 @@ const HomePage: React.FC = () => {
           <ColorBox />
         </Box>
       </Flex>
+      <CustomButton onClick={handleLoading}>
+        {loading ? 'Disable Loading' : 'Enable Loading'}
+      </CustomButton>
+      {loading && <Spinner />}
     </Container>
   );
 };

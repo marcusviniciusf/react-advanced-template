@@ -6,18 +6,21 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Assets and Styles
 import { ThemeProvider } from 'styled-components';
 import { MainStyle, theme } from 'assets';
-// Store - Soon
+// Store
+import StoreProvider from 'store';
 // Pages
 import { HomePage } from 'containers';
 
 render(
   <ThemeProvider theme={theme}>
-    <Router>
-      <MainStyle />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-      </Switch>
-    </Router>
+    <StoreProvider>
+      <Router>
+        <MainStyle />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+        </Switch>
+      </Router>
+    </StoreProvider>
   </ThemeProvider>,
   document.getElementById('root')
 );
