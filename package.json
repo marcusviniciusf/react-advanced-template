@@ -1,7 +1,23 @@
 {
-  "name": "ts-eslint-styled",
+  "name": "react-advanced-template",
   "version": "0.1.0",
   "private": true,
+  "author": "Marcus Vinicius",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript",
+    "styled-system",
+    "styled-components",
+    "eslint",
+    "prettier",
+    "husky"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcwL22/react-advanced-template"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -52,5 +68,6 @@
     "eslint-plugin-react": "^7.18.3",
     "husky": "^4.2.1",
     "prettier": "^1.19.1"
-  }
+  },
+  "license": "MIT"
 }
